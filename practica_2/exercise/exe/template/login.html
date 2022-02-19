@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!--LOGIN-->
+<div class="container border my-5  w-50 pb-5">
+    <div>
+        <div class="text-center text-white row col-12 mt-5">
+            <h1 class="mb-3"><strong>Bienvenido(a)!</strong></h1>
+            <p>Podras conocer nuestro platillos más deliciosos.</p>
+        </div>
+    </div>
+
+    <div class="container w-50 mt-3">
+        <form method="POST">
+            <input type="email" name="nam" class="form-control mb-3" id="exampleInputEmail1" placeholder="@mail.com"
+                aria-describedby="emailHelp">
+            <input type="password" name="passwo" class="form-control mb-3" id="exampleInputPassword1" placeholder="Contraseña">
+
+            <div class="mb-3 mt-5 form-check">
+                <input type="checkbox" class="form-check-input mb-3 form-check" id="exampleCheck1">
+                <label class="text-white form-check-label mx-3" for="exampleCheck1">Recordar</label>
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-warning mt-2" type="button">Ingresar</button>
+            </div>
+            <hr>
+
+            <a class="text-white text-center mt-5 p-3" href="#">No tienes cuenta? registrate aquí</a>
+        </form>
+    </div>
+</div>
+
+{% endblock  %}
