@@ -1,6 +1,8 @@
-from flask import redirect,render_template,request,flash,url_for
-from app import app,db
-from exercise.exe.models import Usuarios
+from flask import redirect,render_template,request,flash,url_for,make_response,jsonify
+from exe import app,db
+from exe.models import Usuarios
+from exe.serializers import user_schema,users_schema
+from flask_cors import cross_origin
 
 """ from flask import redirect, render_template,request,flash,url_for,make_response,jsonify
 from app_tienda import app,db
@@ -27,33 +29,23 @@ def login():
             return redirect(url_for("login"))
     return render_template("login.html")
 
-"""
-
-@app.route('/index')
-def index():
-    template_name="index.html"
-    usuarios=Usuarios.query.all()
-    return render_template(template_name,usuarios=usuarios)
-
-
 @app.route("/registrar" , methods=["GET","POST"])
 def registrar():
     if request.method=="POST":
-        uname=request.form['uname']
+        nam=request.form['nam']
         mail=request.form['mail']
-        passw=request.form['passw']
-        new_usuario=Usuarios(username=uname,email=mail,password=passw)
+        passwo=request.form['passwo']
+        new_usuario=Usuarios(username=nam,email=mail,password=passwo)
         db.session.add(new_usuario)
         db.session.commit()
         return redirect(url_for("login"))
     return render_template("registro.html")
-            
-            
+
 #todo capa de servicios
 @cross_origin
 @app.route('/autenticar/<uname>/<passw>',methods=["POST"])
-def autemticar(uname,passw):
-    login=Usuarios.query.filter_by(username=uname,password=passw).first()
+def autenticar(nam,passwo):
+    login=Usuarios.query.filter_by(username=nam,password=passwo).first()
     result=user_schema.dump(login)
     if login is not None:
         data ={
@@ -65,17 +57,16 @@ def autemticar(uname,passw):
         data ={
             'message':'Error',
             'status':200
-            
         }
-    return make_response(jsonify(data))  
+    return make_response(jsonify(data))
 
 @cross_origin
 @app.route("/add_usuarios",methods=["POST"])
 def add_usuarios():
-    uname=request.json['uname']
+    nam=request.json['nam']
     mail=request.json['mail']
-    passw=request.json['passw']
-    new_usuario=Usuarios(username=uname,email=mail,password=passw)
+    passwo=request.json['passwo']
+    new_usuario=Usuarios(username=nam,email=mail,password=passwo)
     db.session.add(new_usuario)
     db.session.commit()
     result=user_schema.dump(new_usuario)
@@ -84,6 +75,6 @@ def add_usuarios():
             'status':200,
             'data':result
         }
-    return make_response(jsonify(data)) """
+    return make_response(jsonify(data))
 
 

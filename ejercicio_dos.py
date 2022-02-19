@@ -8,43 +8,27 @@
 """
 
 # cantidad=int(print('Cuántos libros desea ingresar: '))
-ti=(input('Nombre del Libro: '))
-au=(input('Nombre del Autor: '))
-pre=int(input('Precio: '))
-like=int(input('Cantidad de likes que recibe: '))
+titulo=(input('Nombre del Libro: '))
+autor=(input('Nombre del Autor: '))
+precio=int(input('Precio: '))
+likes=int(input('Cantidad de likes que recibe: '))
 
 visualizar=(input('Desea ver los valores agregados?: S/N ')).capitalize()
 class Book:
-    def __init__(self,titulo,autor,precio,likes):
+    def __init__(self,titulo='',autor='',precio='',likes=''):
         self.titulo=titulo
         self.autor=autor
         self.precio=precio
         self.likes=likes
-
     def view(self):
-        return f"\n La información es la siguiente: \n Titulo: {self.titulo} \n Autor: {self.autor} \n Precio: {self.precio} \n Likes: {self.likes}
-        # for item in visualizar:
-        #     if item== 'S':
-        #         print(f"\n La información es la siguiente: \n Titulo: {self.titulo} \n Autor: {self.autor} \n Precio: {self.precio} \n Likes: {self.likes}")
-        #         print('En un momento se imprimirá su factura.')
-        #     if visualizar== 'N':
-        #         print(f"\n Gracias por ingresar los datos. En un momento se imprimirá su factura.")
-            # if self.titulo== 'tres':
-            #     print(f"La información es la siguiente: \n Titulo: {self.titulo} \n Autor: {self.autor} \n Precio: {self.precio} \n Likes: {self.likes}")
+        return f'{self.titulo} \n Autor: {self.autor} \n Precio: {self.precio} \n Likes: {self.likes}'
 
     def like(self):
-        pass
+        return f'Me gusta el libro {self.titulo}.'
 
     def dislike(self):
-        pass
+        return f'No me gusta la forma de escribir de {self.autor}.'
 
-    def __str__(self):
-        pass
+print(titulo.view())
 
 
-ti=titulo()
-# au=(input('Nombre del Autor: '))
-# pre=int(input('Precio: '))
-# like=
-
-# visualizar.view()

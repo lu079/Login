@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{{% block title %}}Registro{{% endblock %}}
+
+{% block content %}
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <form method="post">
+
+            <div class="col-md-4" style="width: 1000px;">
+                <label for="validationDefault01" class="form-label">Usuarios</label>
+                <input type="text" class="form-control" id="validationDefault01" value="Peter B." required>
+            </div>
+            <!-- Email input -->
+            <div class="col-md-4" style="width: 1000px;">
+                <div class="input-group ">
+                    <input type="email" class="form-control" id="validationMail" aria-describedby="inputGroupPrepend2"
+                        placeholder="name@example.com" required>
+                </div>
+            </div>
+
+            <!-- Pass input -->
+
+            <div class="col-md-6 form-floating" style="width: 1000px;">
+                <input type="password" class="form-control" id="validationDefault03" placeholder="Contraseña" required>
+                <label for="validationDefault03">Contraseña</label>
+            </div>
+            <div class="col-md-6 form-floating" style="width: 1000px;">
+                <input type="password" class="form-control" id="validationDefault33" placeholder="Contraseña" required>
+                <label for="validationDefault33">Repetir contraseña</label>
+            </div>
+
+            <!-- Checkbox -->
+            <div class="form-check d-flex justify-content-center mb-4">
+                <input class="form-check-input me-2" type="checkbox" value="" id="form5Example3" checked />
+
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Registrarse</button>
+        </form>
+    </div>
+</section>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+{% endblock %}
+
+<script src="js/script.js"></script>
+</body>
+
+</html>

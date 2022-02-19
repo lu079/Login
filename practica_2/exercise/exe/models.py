@@ -1,4 +1,4 @@
-from app import db
+from exe import db
 
 class Usuarios(db.Model):
     cod_usuario=db.Column(db.String(4),primary_key=True)
