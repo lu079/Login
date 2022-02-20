@@ -7,28 +7,33 @@
 6. Escriba un programa para probar la clase Book.
 """
 
-# cantidad=int(print('Cuántos libros desea ingresar: '))
 titulo=(input('Nombre del Libro: '))
 autor=(input('Nombre del Autor: '))
 precio=int(input('Precio: '))
-likes=int(input('Cantidad de likes que recibe: '))
 
-visualizar=(input('Desea ver los valores agregados?: S/N ')).capitalize()
 class Book:
-    def __init__(self,titulo='',autor='',precio='',likes=''):
-        self.titulo=titulo
-        self.autor=autor
-        self.precio=precio
-        self.likes=likes
+    titulo=''
+    autor=''
+    precio=''
+    likes=True
+
     def view(self):
-        return f'{self.titulo} \n Autor: {self.autor} \n Precio: {self.precio} \n Likes: {self.likes}'
+        return f'\n Los datos ingresados son: \n Titulo: {titulo} \n Autor: {autor} \n Precio: {precio} \n '
 
+    # for item in likes:
+        # if likes == True:
     def like(self):
-        return f'Me gusta el libro {self.titulo}.'
-
+        self.likes=True
+        return f'Me gusta el libro {titulo}.'
+        # else:
     def dislike(self):
-        return f'No me gusta la forma de escribir de {self.autor}.'
+        self.likes=False
+        return f'No me gusta la forma de escribir de {autor}.'
 
-print(titulo.view())
+libro=Book()
+# print(libro.titulo)
 
+print(libro.view())
+print(libro.like())
+print(libro.dislike())
 
