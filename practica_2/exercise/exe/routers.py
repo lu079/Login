@@ -4,12 +4,6 @@ from exe.models import Usuarios
 from exe.serializers import user_schema,users_schema
 from flask_cors import cross_origin
 
-""" from flask import redirect, render_template,request,flash,url_for,make_response,jsonify
-from app_tienda import app,db
-from app_tienda.models import Usuarios
-from app_tienda.serializers import user_schema,users_schema
-from flask_cors import cross_origin """
-
 @app.route('/index')
 def index():
     template_name="index.html"
@@ -41,7 +35,6 @@ def registrar():
         return redirect(url_for("login"))
     return render_template("registro.html")
 
-#todo capa de servicios
 @cross_origin
 @app.route('/autenticar/<uname>/<passw>',methods=["POST"])
 def autenticar(nam,passwo):
